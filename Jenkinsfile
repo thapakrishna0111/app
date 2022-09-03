@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Run Test') {
             steps {
-                sh '''cd script/
+                sh '''cd scripts/
                 ./test_container.sh
                 '''
             }
