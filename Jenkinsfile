@@ -18,15 +18,16 @@ pipeline {
         }
         stage('start test app') {
             steps {
-                cd script/
+                sh '''cd scripts/
                 ./test_container.sh
+                '''
             }
             post {
                 success {
-                    echo "App started Sucessfully :)"
+                    sh 'echo "App started Sucessfully :)"'
                 }
                 failure {
-                    echo "App failed to start :("
+                    sh 'echo "App failed :("'
                 }
             }
             
