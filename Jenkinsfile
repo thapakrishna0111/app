@@ -36,8 +36,14 @@ pipeline {
             steps {
                 sh '''cd scripts/
                 ./test_container.sh
-                '''
+                cd ..'''
             }
         }
+        stage('stop test app') {
+            steps {
+                sh 'docker-compose down'
+            }
+        }
+
     }
 }
